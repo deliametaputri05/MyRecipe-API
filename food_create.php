@@ -2,7 +2,12 @@
 
 include 'conn.php';
 
-$gambar = $_POST['gambar'];
+$gambar = $_FILES['gambar']['name'];
+
+$imagePath = "uploads/" . $gambar;
+
+move_uploaded_file($_FILES['gambar']['tmp_name'], $imagePath);
+
 $nama = $_POST['nama'];
 $deskripsi = $_POST['deskripsi'];
 $alat = $_POST['alat'];
